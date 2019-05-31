@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Aldrich');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body,html{
+    background: rgb(165, 205, 212);
+}
+.logo{
+    max-width: 108px;
+    max-height: 90px;
+}
+.title{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+}
+md-tabs-canvas{
+    background: rgb(63,81,181);
+}
+md-tab-item{
+    color: white !important;
+    font-weight: 600;
+
+}
