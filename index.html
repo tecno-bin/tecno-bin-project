@@ -15,7 +15,9 @@
 
     <!-- TOOLBAR     -->
   <md-toolbar layout="row" layout-paddin layout-align="center center">
-      <div flex='10'><img src="assets/IMG-20190530-WA0017.jpg" alt="logo.img" class="logo"></div>
+      <div id="logo-container" flex='15' layout-paddin layout-align="center center">
+        <img flex layout-margin src="assets/nlogo.png" alt="logo.img" class="logo">
+      </div>
       <div flex style="text-align: center">
           <span class="title">{{appTitle}}</span>
       </div>
@@ -28,8 +30,48 @@
         <iframe id='pdf' src="assets/banner projeto.pdf" frameborder="0" width="50%" height="90%"></iframe>
         </div>
     </md-tab>
-    <md-tab label="About">
-        asdfg
+    <md-tab label="Quem somos?">
+      <div layout='column' layout-padding>
+        
+        <!-- AMADO JOSE D ROQUE -->
+        <md-content>
+          <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Amado Jose D Roque</span>
+                <span class="md-subhead">Maior fa de naruto de toda a historia,
+                    24 anos de idade, gosta de front-end!
+                </span>
+              </md-card-title-text>
+              <md-card-title-media>
+                <div class="md-media-lg card-media">
+                  <img src="assets/equipe/amado.png" alt="amado img">
+                </div>
+              </md-card-title-media>
+            </md-card-title>
+          </md-card>
+        </md-content>
+
+        <!-- AMADO JOSE D ROQUE -->
+        <md-content>
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Amado Jose D Roque</span>
+                  <span class="md-subhead">Maior fa de naruto de toda a historia,
+                      24 anos de idade, gosta de front-end!
+                  </span>
+                </md-card-title-text>
+                <md-card-title-media>
+                  <div class="md-media-lg card-media">
+                    <img src="assets/equipe/amado.png" alt="amado img">
+                  </div>
+                </md-card-title-media>
+              </md-card-title>
+            </md-card>
+        </md-content>
+        
+      </div>
     </md-tab>
     <md-tab label="References">
         hdjsdsdad
