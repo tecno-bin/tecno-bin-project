@@ -27,7 +27,7 @@
   <md-tabs  md-center-tabs  md-dynamic-height md-border-bottom>
     <md-tab label="Home">
         <div layout-margin layout-padding layout-align="center center">   
-          <img src="assets/banner.jpg" style="max-width: 90%;" alt="banner">
+          <img flex src="assets/banner.jpg" style="max-width: 100%; align-self: center;" alt="banner">
         </div>
     </md-tab>
     <md-tab label="Quem somos?">
@@ -71,6 +71,45 @@
               </md-card-title>
             </md-card>
         </md-content>
+
+        <!-- Fabio Descricao -->
+        <md-content>
+          <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Fabio Bressane</span>
+                <span class="md-subhead">31 anos, formado em tecnico mecatrenica pelo Senai Roberto Mange
+                   atualmente trabalha no setor metalurgico com usinagem e ferramentaria 
+                  como programador de maquinas CNC, sou entusiasta na area de tecnologia e inovacao.                    
+                </span>
+              </md-card-title-text>
+              <md-card-title-media>
+                <div class="md-media-lg card-media">
+                  <img src="assets/equipe/FABIO.jpg" alt="Fabio img">
+                </div>
+              </md-card-title-media>
+            </md-card-title>
+          </md-card>
+      </md-content>
+
+      <!-- lucas -->
+      <md-content>
+          <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Lucas Duarte</span>
+                <span class="md-subhead">28 anos, futuro desenvolvedor, trabalha na área de qualidade e garantia de produtos automotivos.                   
+                </span>
+              </md-card-title-text>
+              <md-card-title-media>
+                <div class="md-media-lg card-media">
+                  <img src="assets/equipe/lucas.jpg" alt="Lucas img">
+                </div>
+              </md-card-title-media>
+            </md-card-title>
+          </md-card>
+      </md-content>
+
 
       </div>
     </md-tab>
