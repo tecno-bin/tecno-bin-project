@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+  <link rel="stylesheet" href="assets/angular/angular-material.min.css">
   <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -25,11 +25,159 @@
 
   <!-- CONTENT --> 
   <md-tabs  md-center-tabs  md-dynamic-height md-border-bottom>
+    
     <md-tab label="Home">
         <div layout-margin layout-padding layout-align="center center">   
           <img flex src="assets/banner.jpg" style="max-width: 100%; align-self: center;" alt="banner">
         </div>
     </md-tab>
+
+    <md-tab label="APP">
+      <md-toolbar id="Toolbar_APP" layout="row" layout-paddin layout-align="center center">
+        <div flex layout='row' layout-align="center center">
+          <img layout-padding src="assets/upload.png" alt="upload" style="max-height: 60px;" ng-click='upload()'>
+        </div>
+        <div flex='80' layout='row' layout-align="center center">
+          <md-button ng-click="showC()" style="text-align: center; background:rgb(98, 98, 98);font-size: 1.2em; width: 40%">MEUS CUPONS</md-button>
+        </div>
+        <div flex layout='row' layout-align="center center">
+          <div id="logo-container" >
+            </div>
+          <img src="assets/billgates.jpg" alt="bill" style="max-height: 60px; border-radius: 1000px;">
+        </div>
+      </md-toolbar>
+
+      <!-- CARTOES DE DESCONTO -->
+      <md-conent ng-if="showCup" layout-margin layout-padding>
+        <md-card style="background: gray;" md-theme-watch>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">McDonalds</span>
+              <span class="md-subhead" style="color: white">validade: 10/09/19<br>Mc Lanche por R$19,90</span>
+            </md-card-title-text>
+            <md-card-title-media>
+              <div class="md-media-lg card-media">
+                <img src="assets/qr.png" alt="qr" style="max-height: 140px">
+              </div>
+            </md-card-title-media>
+          </md-card-title>
+        </md-card>
+
+        <md-card style="background: gray;" md-theme-watch>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Lojas Rener S.A</span>
+              <span class="md-subhead" style="color: white">validade: 12/09/19<br>10% de desconto em compras acima de R$100,00</span>
+            </md-card-title-text>
+            <md-card-title-media>
+              <div class="md-media-lg card-media">
+                <img src="assets/qr.png" alt="qr" style="max-height: 140px">
+              </div>
+            </md-card-title-media>
+          </md-card-title>
+        </md-card>
+
+        <md-card ng-if="newCard" style="background: gray;" md-theme-watch>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Netflix</span>
+              <span class="md-subhead" style="color: white">validade: 13/09/20<br>um mes de mensalidade</span>
+            </md-card-title-text>
+            <md-card-title-media>
+              <div class="md-media-lg card-media">
+                <img src="assets/qr.png" alt="qr" style="max-height: 140px">
+              </div>
+            </md-card-title-media>
+          </md-card-title>
+        </md-card>
+      </md-conent>
+
+      <!-- MAIN BOTOES -->
+      <md-content id="main" layout='column' layout-padding>
+        
+        <!-- DESCONTOS -->
+        <md-button class="mainBut" ng-click="showDescontos()"> DESCONTOS </md-button>
+        <md-content ng-if="produtos">
+          <table>
+            <tr>
+              <th>Tipo de produto</th>
+              <th>Pontos</th>
+            </tr>
+            <tr ng-repeat='(prod, pontos) in produtos'>
+              <td>{{prod}}</td>
+              <td>{{pontos}}</td>
+            </tr>
+          </table>
+        </md-content>
+
+        <!-- TIPOS DE TROCA -->
+        <md-button class="mainBut" ng-click="showTipos()"> TIPOS DE TROCA (PONTOS) </md-button>
+        <md-content ng-if="tipos">
+          <table>
+            <tr>
+              <th>Marca</th>
+              <th>Pontos</th>
+              <th>Desc</th>
+            </tr>
+            <tr ng-repeat='(tipo, data) in tipos'>
+              <td>{{tipo}}</td>
+              <td>{{data.t}}</td>
+              <td>{{data.desc}}</td>
+            </tr>
+          </table>
+        </md-content>
+      
+      </md-content>
+
+      <md-content style="visibility: hidden;" id="uploadScreem" layout='column' layout-padding>
+        <h1 style="text-align: center;">Solicitando uma coleta de e-lixo</h1>
+        <md-header>escolha o produto que deseja trocar</md-header>
+        <md-input-container>
+          <label>produtos</label>
+          <md-select ng-model="prod1">
+            <md-option ng-repeat="(peca,pp) in pro" ng-value="pp">
+              {{peca}} - {{pp}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container>
+          <label>produtos</label>
+          <md-select ng-model="prod2">
+            <md-option ng-repeat="(peca,pp) in pro" ng-value="pp">
+              {{peca}} - {{pp}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container>
+          <label>produtos</label>
+          <md-select ng-model="prod3">
+            <md-option ng-repeat="(peca,pp) in pro" ng-value="pp">
+              {{peca}} - {{pp}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <div layout-margin>
+          <h1>Pontos: {{prod1+prod2+prod3}}</h1>
+        </div>
+
+        <md-input-container>
+          <label>CUPOM</label>
+          <md-select ng-model="cupon">
+            <md-option ng-repeat="(cu, n) in ti" ng-value="n.t">
+              {{cu}} - {{n.desc}} - {{n.t}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+
+        <div layout-margin>
+          <h1>Saldo:{{((prod1)+(prod2)+(prod3)) - cupon}}</h1>
+        </div>
+
+        <md-button ng-click="makeDeal()">FAZER SOLICITACAO</md-button>
+      </md-content>
+
+    </md-tab>
+  
     <md-tab label="Quem somos?">
       <div layout='column' layout-padding>
         
@@ -110,25 +258,42 @@
           </md-card>
       </md-content>
 
+      <!-- jaq -->
+      <md-content>
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Jaqueline Holiguti</span>
+              <span class="md-subhead">30 anos. Formada em tecnico eletronica na Etec Bento Quirino. Trabalha no Instituto Eldorado na area de certificacao e homologacao de produtos.</span>
+            </md-card-title-text>
+            <md-card-title-media>
+              <div class="md-media-lg card-media">
+                <img src="assets/equipe/jaq.jpg" alt="amado img">
+              </div>
+            </md-card-title-media>
+          </md-card-title>
+        </md-card>
+      </md-content>
+
 
       </div>
     </md-tab>
-    <md-tab label="References">
+    <!-- <md-tab label="References">
         <span>on contruction..</span>
-    </md-tab>
+    </md-tab> -->
 
 
   </md-tabs>
 </div>
   
   <!-- Angular Material requires Angular.js Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+  <script src="assets/angular/angular.min.js"></script>
+  <script src="assets/angular/angular-animate.min.js"></script>
+  <script src="assets/angular/angular-aria.min.js"></script>
+  <script src="assets/angular/angular-messages.min.js"></script>
 
   <!-- Angular Material Library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+  <script src="assets/angular/angular-material.min.js"></script>
   
   <!-- Your application bootstrap  -->
   <script type="text/javascript" src="ctrl.js">    
